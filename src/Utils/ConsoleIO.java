@@ -14,6 +14,12 @@ public class ConsoleIO {
         System.out.println(input);
     }
 
+    public static <T> void printArray(T[] array) {
+        for (int i = 0; i < array.length; i++) {
+            println(String.valueOf(array[i]));
+        }
+    }
+
     public static void clearConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -22,4 +28,5 @@ public class ConsoleIO {
     public static String readLine() {
         return SCANNER.nextLine();
     }
+
 }
