@@ -1,11 +1,11 @@
-package Utils;
+package io;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import static Utils.ConsoleIO.*;
+import static utils.ConsoleIO.*;
 
 public class LoadImage {
 

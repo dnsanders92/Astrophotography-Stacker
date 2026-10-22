@@ -1,12 +1,12 @@
-import Utils.FolderManager;
-import Utils.ImageConverter;
+import io.FolderManager;
+import io.ImageConverter;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import static Utils.ConsoleIO.*;
-import static Utils.SearchImages.*;
-import static Utils.LoadImage.*;
+import static utils.ConsoleIO.*;
+import static io.SearchImages.*;
+import static io.LoadImage.*;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,8 +1,8 @@
-package Utils;
+package io;
 
 import java.io.File;
 
-import static Utils.ConsoleIO.*;
+import static utils.ConsoleIO.*;
 
 public class FolderManager {
 
