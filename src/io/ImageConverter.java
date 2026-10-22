@@ -1,11 +1,13 @@
 package io;
 
+import pixelforge.RawImage;
+
 import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
 
 public class ImageConverter {
 
-    public static int[][] toMonoArray(BufferedImage image) {
+    public static RawImage toMonoArray(BufferedImage image) {
         Raster raster = image.getRaster();
 
         int height = image.getHeight();
@@ -19,6 +21,6 @@ public class ImageConverter {
             }
         }
 
-        return imageArray;
+        return new RawImage(imageArray);
     }
 }

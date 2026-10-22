@@ -1,5 +1,6 @@
 import io.FolderManager;
 import io.ImageConverter;
+import pixelforge.RawImage;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -17,7 +18,7 @@ public class Main {
         printArray(tiffFiles);
         BufferedImage image = getImage(tiffFiles[1]);
 
-        int[][] imageArray = ImageConverter.toMonoArray(image);
-        println(String.valueOf(imageArray[143][594]));
+        RawImage raw = ImageConverter.toMonoArray(image);
+        println(String.valueOf(raw.get(583, 792)));
     }
 }
