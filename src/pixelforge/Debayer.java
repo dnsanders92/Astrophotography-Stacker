@@ -1,12 +1,14 @@
 package pixelforge;
 
+import static pixelforge.Interpolation.*;
+
 public class Debayer {
 
-    public static RGBImage debayer(RawImage rawImage) {
+    public static RGBImage debayer(RawImage rawImage, String bayerPattern) {
 
         int[][][] rgb = BayerChannels.extract(rawImage, "RGGB");
 
-        // TODO: Interpolation logic via dedicated interpolation class.
+        interpolate(rgb, bayerPattern);
 
         return new RGBImage(rgb);
     }

@@ -29,16 +29,11 @@ public class Main {
         // Converts buffered image into a RawImage object which is an int[][].
         RawImage raw = ImageConverter.toMonoArray(image);
 
-        RGBImage rgbImage = debayer(raw);
+        println(String.valueOf(raw.get(6,3))) ;
+        println(String.valueOf(raw.get(6,3))) ;
 
-        // Prints the value from a xy coordinate within the RawImage raw and then corresponding pixels in RGBImage.
-        println(String.valueOf(raw.get(128, 128)));
-        println(String.valueOf(rgbImage.get(128, 128, 0)));
+        RGBImage rgbImage = debayer(raw, "RGGB");
 
-        println(String.valueOf(raw.get(129, 128)));
-        println(String.valueOf(rgbImage.get(129, 128, 1)));
-
-        println(String.valueOf(raw.get(129, 129)));
-        println(String.valueOf(rgbImage.get(129, 129, 2)));
+        println(String.valueOf(rgbImage.get(6,3,1))) ;
     }
 }
