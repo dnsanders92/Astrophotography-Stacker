@@ -6,17 +6,17 @@ A Java console app that takes a folder of raw astrophotography frames, debayers 
 
 **Raw mosaic vs debayered**
 
-![Raw vs debayered](docs/[orion-debayer-image].png)
+![Raw vs debayered](orion-debayer-image.png)
 *Orion Nebula, a single raw frame (left) and the same frame after debayering (right).*
 
 **Single frame vs stack**
 
-![Andromeda single frame vs stack](docs/m31_wide.png)
+![Andromeda single frame vs stack](m31_wide.png)
 *Andromeda Galaxy, a single 30 s frame (left) and the mean stack of 128 frames, 64 minutes total integration (right).*
 
 **Noise reduction up close**
 
-![Andromeda close up](docs/m31_close.png)
+![Andromeda close up](m31_close.png)
 *The same region zoomed in, single frame (left) and stack (right).*
 
 All images were auto-stretched in Siril for viewing. The saved files are linear and unstretched.
