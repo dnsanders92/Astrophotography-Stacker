@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import static utils.ConsoleIO.*;
 
-public class LoadImage {
+public class ImageManager {
 
     public static BufferedImage getImage(File filePath) {
         try {
@@ -15,6 +15,14 @@ public class LoadImage {
         } catch (IOException e) {
             println("Failed to load image: " + filePath.getName());
             return null;
+        }
+    }
+
+    public static void saveImage(BufferedImage bufferedImage, File filePath) {
+        try {
+            ImageIO.write(bufferedImage, "tiff", filePath);
+        } catch (IOException e) {
+            println("Failed to save image: " + filePath.getName());
         }
     }
 }

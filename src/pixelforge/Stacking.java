@@ -3,13 +3,13 @@ package pixelforge;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import static io.LoadImage.*;
+import static io.ImageManager.*;
 import static io.ImageConverter.*;
 import static utils.ConsoleIO.*;
 
 public class Stacking {
 
-    public static int[][][] meanStacking(File[] imagePaths) {
+    public static RGBImage meanStacking(File[] imagePaths) {
 
         BufferedImage refImage = getImage(imagePaths[0]);
         int height = refImage.getHeight();
@@ -30,7 +30,7 @@ public class Stacking {
                 }
             }
 
-            print((i + 1) + "/" + imagePaths.length + " stacked");
+            println((i + 1) + "/" + imagePaths.length + " stacked");
             currentImage.flush();
         }
 
@@ -42,6 +42,6 @@ public class Stacking {
             }
         }
 
-        return imageStack;
+        return new RGBImage(imageStack);
     }
 }

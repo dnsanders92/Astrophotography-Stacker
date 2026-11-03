@@ -3,8 +3,9 @@ package io;
 import pixelforge.RGBImage;
 import pixelforge.RawImage;
 
-import java.awt.image.BufferedImage;
-import java.awt.image.Raster;
+import java.awt.*;
+import java.awt.color.ColorSpace;
+import java.awt.image.*;
 
 public class ImageConverter {
 
@@ -42,5 +43,51 @@ public class ImageConverter {
         }
 
         return new RGBImage(rgbArray);
+    }
+
+    public static BufferedImage toBufferedImageRGB(RGBImage rgbImage) {
+        int height = rgbImage.getHeight();
+        int width = rgbImage.getWidth();
+
+        ColorSpace colorSpace = ColorSpace.getInstance(ColorSpace.CS_sRGB);
+        ColorModel colorModel = new ComponentColorModel(
+          colorSpace,
+          false,
+          false,
+          Transparency.OPAQUE,
+          DataBuffer.TYPE_USHORT
+        );
+
+        WritableRaster raster = Raster.createInterleavedRaster(
+                DataBuffer.TYPE_USHORT,
+                width,
+                height,
+                width * 3,
+                3,
+                new int[]{0, 1, 2},
+                null
+        );
+
+        BufferedImage bufferedImage = new BufferedImage(
+                colorModel,
+                raster,
+                colorModel.isAlphaPremultiplied(),
+                null
+        );
+
+        int[] pixel = new int[3];
+
+        for(int row = 0; row < height; row++) {
+            for(int col = 0; col < width; col++) {
+
+                pixel[0] = rgbImage.get(col, row, 0);
+                pixel[1] = rgbImage.get(col, row, 1);
+                pixel[2] = rgbImage.get(col, row, 2);
+
+                raster.setPixel(col, row, pixel);
+            }
+        }
+
+        return bufferedImage;
     }
 }
